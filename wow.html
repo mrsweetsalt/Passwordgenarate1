@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Генератор паролів</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Зірки генеруються JS -->
+  <div class="planet planet1" id="moon"></div>
+  <div class="planet planet2"></div>
+
+  <!-- Тварини -->
+  <div class="animal dog" style="top: 20%; left: -50px;"></div>
+  <div class="animal dog" style="top: 30%; left: -60px; animation-duration: 17s;"></div>
+  <div class="animal cat" style="top: 70%; left: -50px;"></div>
+  <div class="animal cat" style="top: 40%; left: -60px; animation-duration: 20s;"></div>
+
+  <!-- Генератор -->
+  <div class="container">
+    <button class="btn" onclick="generatePassword()">Згенерувати пароль</button>
+    <div class="length-input">
+      Довжина: <input type="number" id="length" value="12" min="4" max="64">
+    </div>
+    <div id="result"></div>
+    <div id="error" class="error-message"></div>
+  </div>
+
+  <!-- Вікно з анекдотом -->
+  <div id="jokeNotification" class="joke-notification">
+    <p>На мотоциклі каляска була погано прикріплена, тому Сашко та Ольга розійшлися красиво</p>
+    <button class="close-joke" onclick="closeJoke()">Закрити</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+  color: white;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  position: relative;
+  height: 100vh;
+}
+
+/* Зірки */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Тварини */
+.animal {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+  will-change: transform;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+.dog {
+  background-image: url('dog.png');
+  animation: float 15s linear infinite;
+}
+
+.cat {
+  background-image: url('cat.png');
+  animation: float 18s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translate(-100px, calc(100vh + 50px)) rotate(0deg); }
+  100% { transform: translate(calc(100vw + 100px), -100px) rotate(360deg); }
+}
+
+/* Планети */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.planet:hover {
+  transform: scale(1.05);
+}
+
+.planet1 {
+  width: 80px;
+  height: 80px;
+  top: 5%;
+  left: 15%;
+  background-image: url('moon.jpg');
+}
+
+.planet2 {
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 70%;
+  background-image: url('mars.jpg');
+}
+
+/* Контейнер */
+.container {
+  position: relative;
+  top: 30vh;
+  z-index: 2;
+  padding: 0 15px;
+}
+
+.btn {
+  padding: 12px 25px;
+  background: #00ffcc;
+  color: black;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00cc99;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #00ffcc;
+  word-break: break-all;
+  padding: 0 10px;
+}
+
+.length-input {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.length-input input {
+  width: 50px;
+  font-size: 16px;
+  padding: 5px;
+  margin-left: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+.error-message {
+  color: #ff5555;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.joke-notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #00ffcc;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #00ffcc;
+  max-width: 80%;
+  text-align: center;
+  z-index: 1000;
+  display: none;
+  animation: fadeIn 0.5s;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.close-joke {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #00ffcc;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-joke:hover {
+  background: #00cc99;
+}
+
+/* Адаптивність */
+@media (max-width: 600px) {
+  .animal { width: 30px; height: 30px; }
+  .planet1 { width: 60px; height: 60px; }
+  .planet2 { width: 90px; height: 90px; }
+  .container { top: 25vh; }
+  .btn { padding: 10px 20px; font-size: 16px; }
+  #result { font-size: 18px; }
+  .joke-notification { padding: 15px; font-size: 14px; }
+}
+
+@media (max-width: 400px) {
+  .length-input { font-size: 14px; }
+  .length-input input { width: 40px; font-size: 14px; }
+}
